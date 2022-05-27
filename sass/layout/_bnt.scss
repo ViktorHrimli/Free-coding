@@ -1,0 +1,19 @@
+.btn {
+    @extend %text;
+    min-width: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 29px;
+    color: $color;
+    background-color: $primiry-color;
+    cursor: pointer;
+    border-radius: 80px;
+
+    &:last-child {
+        margin-left: 10px;
+        padding: 4px 23px;
+    }
+
+
+}
