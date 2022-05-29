@@ -17,6 +17,12 @@ body p {
   line-height: 26px;
 }
 
+body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .conteiner {
   max-width: 100%;
   margin: auto;
@@ -43,13 +49,13 @@ body p {
   }
 }
 
-.conteiner, .conteiner__hero, .about__conteiner, .about__conteiner .about__title--card, .about__conteiner .ithem__card {
+.conteiner, .conteiner__hero, .about__conteiner, .about__conteiner .about__title--card, .about__conteiner .ithem__card, .footer__conteiner {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header .header__text--logo, .about__conteiner .text__card, .btn {
+.header .header__text--logo, .about__conteiner .text__card, .footer__conteiner .form__imput::placeholder, .btn {
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -323,6 +329,106 @@ button {
   margin-top: 20px;
 }
 
+.footer__conteiner {
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.footer__conteiner .footer__text {
+  align-items: center;
+  text-align: center;
+  max-width: 328px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__conteiner .footer__text {
+    max-width: none;
+  }
+}
+
+.footer__conteiner .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__conteiner .form__lable {
+  margin-bottom: 50px;
+}
+
+.footer__conteiner .form__lable:last-child {
+  margin-bottom: 0;
+}
+
+.footer__conteiner .form__imput {
+  width: 328px;
+  height: 54px;
+  outline: none;
+  background: #F8F8F8;
+  padding: 14px 16px;
+  border: 1px solid #D0CFCF;
+  border-radius: 4px;
+}
+
+.footer__conteiner .form__imput::placeholder {
+  color: #7E7E7E;
+}
+
+.lable__phone {
+  font-size: 12px;
+  line-height: 14px;
+  color: #7E7E7E;
+  margin-top: 4px;
+  margin-right: 191px;
+}
+
+.radio__form {
+  display: flex;
+  margin-right: 171px;
+}
+
+.radio__form .radio__conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+}
+
+.radio__form .radio__conteiner input {
+  margin-right: 12px;
+}
+
+.radio__form .radio__conteiner .radio__ithem {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.upload__form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.upload__form .upload__input {
+  width: 248px;
+  padding: 14px 16px;
+  color: #7E7E7E;
+  outline: none;
+  border: 1px solid #D0CFCF;
+}
+
+.upload__form .upload__lable {
+  padding: 14px 15px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 4px 0px 0px 4px;
+}
+
 .btn {
   min-width: 100px;
   display: inline-flex;
@@ -338,5 +444,17 @@ button {
 .btn:last-child {
   margin-left: 10px;
   padding: 4px 23px;
+}
+
+.btn:hover {
+  background-color: #FFE302;
+}
+
+.btn--disebled {
+  background-color: #B4B4B4;
+}
+
+.btn--disebled:hover {
+  background-color: #B4B4B4;
 }
 /*# sourceMappingURL=main.css.map */

@@ -15,5 +15,18 @@
         padding: 4px 23px;
     }
 
+    &:hover {
+        background-color: $btn--hover;
+    }
 
+
+}
+
+// disebled-btn\\
+.btn--disebled {
+    background-color: $btn--disebled;
+
+    &:hover {
+        background-color: $btn--disebled;
+    }
 }

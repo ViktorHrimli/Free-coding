@@ -1,0 +1,126 @@
+.footer__conteiner {
+    @extend %display;
+    flex-direction: column;
+    margin-bottom: 25px;
+
+
+
+    // text \\
+    .footer__text {
+        align-items: center;
+        text-align: center;
+        max-width: 328px;
+        margin-bottom: 50px;
+
+        @media screen and (max-width:1200px) {
+            max-width: none;
+
+        }
+    }
+
+    //    form \\ 
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form__lable {
+        margin-bottom: 50px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
+
+
+    .form__imput {
+        width: 328px;
+        height: 54px;
+        outline: none;
+        background: #F8F8F8;
+        padding: 14px 16px;
+
+
+        border: 1px solid #D0CFCF;
+        border-radius: 4px;
+
+        &::placeholder {
+            @extend %text;
+            color: #7E7E7E;
+        }
+    }
+
+}
+
+// lable--phone \\
+.lable__phone {
+    font-size: 12px;
+    line-height: 14px;
+    color: #7E7E7E;
+    margin-top: 4px;
+    margin-right: 191px;
+}
+
+
+// radio--bnt \\ 
+
+
+.radio__form {
+    display: flex;
+    margin-right: 171px;
+
+    .radio__conteiner {
+        display: flex;
+        flex-direction: column;
+        align-items: inherit;
+
+        input {
+            margin-right: 12px;
+
+        }
+
+        .radio__ithem {
+            display: inline-flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            align-items: center;
+
+        }
+
+    }
+}
+
+// upload \\
+.upload__form {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
+
+
+
+    .upload__input {
+        width: 248px;
+        padding: 14px 16px;
+        color: $disable--text;
+        outline: none;
+        border: 1px solid #D0CFCF;
+
+
+    }
+
+    .upload__lable {
+        padding: 14px 15px;
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.87);
+        border-radius: 4px 0px 0px 4px;
+    }
+
+}
