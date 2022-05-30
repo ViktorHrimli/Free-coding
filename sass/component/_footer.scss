@@ -81,6 +81,7 @@
         input {
             margin-right: 12px;
 
+
         }
 
         .radio__ithem {
@@ -88,6 +89,15 @@
             flex-direction: row-reverse;
             justify-content: flex-end;
             align-items: center;
+            margin-bottom: 7px;
+
+            &:first-child {
+                margin-top: 11px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
 
         }
 

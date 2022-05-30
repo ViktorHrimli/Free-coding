@@ -403,6 +403,15 @@ button {
   flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 7px;
+}
+
+.radio__form .radio__conteiner .radio__ithem:first-child {
+  margin-top: 11px;
+}
+
+.radio__form .radio__conteiner .radio__ithem:last-child {
+  margin-bottom: 0;
 }
 
 .upload__form {
