@@ -23,7 +23,7 @@
     <header class="header">
       <div class="conteiner">
         <svg class="header__icons">
-          <use href="./imges/sprite.svg#catTest"></use>
+          <!-- <use href="./imges/sprite.svg#catTest"></use> -->
         </svg>
 
         <p class="header__text--logo">TESTTASK</p>
@@ -53,11 +53,11 @@
 
       <!-- About -->
 
-      <section class="about">
+      <section class="about" id="about">
         <div class="conteiner about__conteiner">
           <h1 class="about__text">Working with GET request</h1>
 
-          <ul class="about__title--card">
+          <ul id="card" class="about__title--card">
             <li class="ithem__card">
               <img
                 class="card"
@@ -134,76 +134,86 @@
             </li>
           </ul>
 
-          <button class="btn" type="button">Show more</button>
+          <button class="btn" data-action="show" type="button">
+            Show more
+          </button>
         </div>
       </section>
     </main>
 
-    <footer class="footer__conteiner">
-      <div class="conteiner footer__conteiner">
+    <footer class="">
+      <div class="footer__conteiner">
         <h1 class="footer__text">Working with POST request</h1>
 
         <form class="form" action="#">
-          <label class="form__lable" for="name">
-            <input
-              class="form__imput"
-              type="text"
-              name="name"
-              placeholder="Your name"
-            />
+          <input
+            class="form__imput"
+            type="text"
+            name="user"
+            placeholder="Your name"
+          />
+          <input
+            class="form__imput"
+            type="text"
+            name="email"
+            placeholder="Emeil"
+          />
+
+          <input
+            class="form__imput gimod"
+            type="text"
+            name="tel"
+            placeholder="Phone"
+          />
+          <label class="form__lable lable__phone" for="tel"
+            >+380 95 569 33 79
           </label>
-          <label class="form__lable" for="emeil">
+
+          <div class="conteiner radio__form">
+            <p class="form__text">Select your position</p>
+            <label class="radio__ithem" for="frontend"
+              >Frontend developer
+              <input type="radio" name="cheked" value="Frontend developer" />
+            </label>
+
+            <label class="radio__ithem" for="backend"
+              >Backend developer
+              <input type="radio" name="cheked" value="Backend developer"
+            /></label>
+            <label class="radio__ithem" for="design"
+              >Design <input type="radio" name="cheked" value="Design"
+            /></label>
+            <label class="radio__ithem" for="QA">
+              QA
+              <input type="radio" id="test" name="cheked" value="QA" />
+            </label>
+          </div>
+          <div class="conteiner__submit">
+            <label type="text" class="upload__lable">Upload</label>
             <input
-              class="form__imput"
+              id="input-file"
               type="text"
-              name="emeil"
-              placeholder="Emeil"
+              class="upload__input"
+              placeholder="Upload your photo"
             />
-          </label>
-         
             <input
-              class="form__imput"
-              type="text"
-              name="tel"
-              placeholder="Phone"
+              id="image-input"
+              type="file"
+              name="file"
+              accept="image/jpeg, image/png, image/jpg"
             />
-             <label class="form__lable lable__phone" for="tel">+380 95 569 33 79
-          </label>
+          </div>
+          <button
+            class="btn btn--disebled"
+            id="btn-submit"
+            type="submit"
+            disabled
+          >
+            Sign Up
+          </button>
         </form>
       </div>
-      <form class="radio__form" action="#">
-        <div class="conteiner radio__conteiner">
-          <p class="form__text">Select your position</p>
-          <label class="radio__ithem" for="Frontend">Frontend developer
-          <input type="radio" name="cheks" value="Frontend developer"
-        />
-      </label>
-
-        <label class="radio__ithem" for="Backend">Backend developer
-          <input type="radio" name="cheks" value="Backend developer"
-        /></label>
-        <label class="radio__ithem" for="Desi">Design
-          <input type="radio" name="cheks" value="Design"
-        /></label>
-        <label class="radio__ithem" for="QA"> QA 
-            <input type="radio" id="test" name="cheks" value="QA" />
-            </label>
-            
-    
-      </form>
-    </div>
-
-    <form class="upload__form conteiner action="#">
-      <label for="upload" type="text" class="upload__lable">Upload</label>
-      <input id="upload" type="text" class="upload__input" placeholder="Upload your photo">
-    </form>
-
-
-
-
-      <button  class="btn btn--disebled" type="button">Sign Up</button>
-        
-
     </footer>
+    <script src="/index.js" type="module"></script>
   </body>
 </html>

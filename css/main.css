@@ -55,7 +55,7 @@ body img {
   align-items: center;
 }
 
-.header .header__text--logo, .about__conteiner .text__card, .footer__conteiner .form__imput::placeholder, .btn {
+.header .header__text--logo, .about__conteiner .text__card, .form__imput::placeholder, .btn {
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
@@ -221,6 +221,10 @@ button {
   margin-top: 30px;
 }
 
+.about__conteiner .btn-remove {
+  display: none;
+}
+
 .about__conteiner .about__text {
   font-weight: 400;
   color: rgba(0, 0, 0, 0.87);
@@ -334,7 +338,7 @@ button {
   margin-bottom: 25px;
 }
 
-.footer__conteiner .footer__text {
+.footer__text {
   align-items: center;
   text-align: center;
   max-width: 328px;
@@ -342,26 +346,26 @@ button {
 }
 
 @media screen and (max-width: 1200px) {
-  .footer__conteiner .footer__text {
+  .footer__text {
     max-width: none;
   }
 }
 
-.footer__conteiner .form {
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.footer__conteiner .form__lable {
+.form__lable {
   margin-bottom: 50px;
 }
 
-.footer__conteiner .form__lable:last-child {
+.form__lable:last-child {
   margin-bottom: 0;
 }
 
-.footer__conteiner .form__imput {
+.form__imput {
   width: 328px;
   height: 54px;
   outline: none;
@@ -371,8 +375,16 @@ button {
   border-radius: 4px;
 }
 
-.footer__conteiner .form__imput::placeholder {
+.form__imput:last-child {
+  margin-bottom: 50px;
+}
+
+.form__imput::placeholder {
   color: #7E7E7E;
+}
+
+.mod {
+  margin-bottom: 0;
 }
 
 .lable__phone {
@@ -385,20 +397,16 @@ button {
 
 .radio__form {
   display: flex;
-  margin-right: 171px;
-}
-
-.radio__form .radio__conteiner {
-  display: flex;
   flex-direction: column;
-  align-items: inherit;
+  align-items: flex-start;
+  margin-left: 0;
 }
 
-.radio__form .radio__conteiner input {
+.radio__form input {
   margin-right: 12px;
 }
 
-.radio__form .radio__conteiner .radio__ithem {
+.radio__ithem {
   display: inline-flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -406,11 +414,11 @@ button {
   margin-bottom: 7px;
 }
 
-.radio__form .radio__conteiner .radio__ithem:first-child {
+.radio__ithem:first-child {
   margin-top: 11px;
 }
 
-.radio__form .radio__conteiner .radio__ithem:last-child {
+.radio__ithem:last-child {
   margin-bottom: 0;
 }
 
@@ -423,7 +431,15 @@ button {
   justify-content: center;
 }
 
-.upload__form .upload__input {
+.conteiner__submit {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.upload__input {
+  margin-right: 0;
   width: 248px;
   padding: 14px 16px;
   color: #7E7E7E;
@@ -431,11 +447,25 @@ button {
   border: 1px solid #D0CFCF;
 }
 
-.upload__form .upload__lable {
+.upload__lable {
+  margin-left: 0;
   padding: 14px 15px;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.87);
   border-radius: 4px 0px 0px 4px;
+}
+
+.succsses__load {
+  background-color: #F8F8F8;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+}
+
+.succsses__load::placeholder {
+  color: black;
+}
+
+#image-input {
+  display: none;
 }
 
 .btn {
