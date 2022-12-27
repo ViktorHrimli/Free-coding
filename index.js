@@ -1,56 +1,54 @@
-import { Response } from "./js/response.js";
-import { refs } from "./js/refs.js";
-import { renderCardUser } from "./js/render.js";
-import { PostsResponse } from "./js/response.js";
-const res = new Response({});
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 
-function onShowMoreCard() {
-  res.getUser().then((data) => {
-    const { total_pages, users, page } = data;
-    if (total_pages === page) {
-      return onShowBtn();
-    }
-    users.forEach((item) => {
-      refs.title.insertAdjacentHTML("beforeend", renderCardUser(item));
-    });
-  });
-}
+  newName(newName) {
+    this.name = newName;
+  }
 
-function onShowBtn() {
-  refs.showMoreBtn.classList.add("btn-remove");
-}
+  changeAge(newAge) {
+    this.age = newAge;
+  }
 
-function onSubmitForm(event) {
-  event.preventDefault();
-  const resPost = new PostsResponse(event.currentTarget);
-  resPost.postUser().then((data) => {
-    console.log(data);
-  });
-}
-
-function validateFormSubmit(event) {
-  const { user, email, tel, cheked, file } = event.currentTarget;
-  console.log();
-  if (
-    user.value !== "" &&
-    email.value !== "" &&
-    tel.value !== "" &&
-    cheked.value !== "" &&
-    file.files.length !== 0
-  ) {
-    refs.btnSubmit.disabled = false;
-    refs.btnSubmit.classList.remove("btn--disebled");
-    refs.uploadFoto.placeholder = `${file.files[0].name}`;
-    refs.uploadFoto.classList.add("succsses__load");
+  getPerson() {
+    console.log(`Hello im ${this.name} and me ${this.age} age`);
   }
 }
 
-const onClickField = () => {
-  refs.fileField.click();
+class Gender extends Person {
+  constructor(gender) {
+    super();
+    this.gender = gender;
+  }
+  changeGender(newGender) {
+    this.gender = newGender;
+  }
+
+  loger() {
+    console.log(this.name, this.gender);
+  }
+}
+
+const bib = new Person("Bib", 40);
+
+const bob = new Gender("male");
+bob.newName("bob");
+bob.changeAge(37);
+bob.getPerson();
+
+bob.sayHiBob = function () {
+  console.log("Hi bob");
 };
 
-// listener
-refs.showMoreBtn.addEventListener("click", onShowMoreCard);
-refs.form.addEventListener("submit", onSubmitForm);
-refs.form.addEventListener("change", validateFormSubmit);
-refs.uploadFoto.addEventListener("click", onClickField);
+bob.sayHiBob();
+
+Person.fuckOfBob = () => {
+  console.log("Fuck of bob");
+};
+
+bob.changeGender("no-binare-toster");
+bob.newName("philips");
+bob.loger();
+console.log(bob);

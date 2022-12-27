@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "json": "json-server --watch db.json -p 4040 -d 500",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/ViktorHrimli/test/issues"
   },
-  "homepage": "https://github.com/ViktorHrimli/test#readme",
-  "devDependencies": {
-    "json-server": "^0.17.0"
-  }
+  "homepage": "https://github.com/ViktorHrimli/test#readme"
 }
