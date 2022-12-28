@@ -23,20 +23,44 @@ function pivotIndex(nums) {
     }
     leftSum += nums[i];
   }
-  // if (totalSum === 0 && nums.lastIndexOf(1) === 5) {
-  //   return -1;
-  // }
-  // if (totalSum === 0) {
-  //   return nums.lastIndexOf(0);
-  // }
 
   return -1;
 }
 
-console.log(pivotIndex([-1, -1, 0, 1, 1, 0]));
-console.log(pivotIndex([-1, -1, 0, 0, 1, 1]));
-console.log(pivotIndex([-1, -1, 0, 1, 1, 1]));
+// console.log(pivotIndex([-1, -1, 0, 1, 1, 0]));
+// console.log(pivotIndex([-1, -1, 0, 0, 1, 1]));
+// console.log(pivotIndex([-1, -1, 0, 1, 1, 1]));
 
 // console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
 // console.log(pivotIndex([1, 2, 3]));
 // console.log(pivotIndex([2, 1, -1]));
+
+function maximumWealth(accounts) {
+  let total = 0;
+  let totalArr = [];
+  accounts.forEach((item) => {
+    for (let i = 0; i < item.length; i++) {
+      total += item[i];
+    }
+
+    totalArr.push(total);
+    total = 0;
+  });
+  return Math.max(...totalArr);
+}
+
+console.log(
+  maximumWealth([
+    [1, 2, 3],
+    [3, 2, 1],
+  ])
+);
+console.log(
+  maximumWealth([
+    [1, 5],
+    [7, 3],
+    [3, 5],
+  ])
+);
+// console.log(maximumWealth([1, 2, 3]));
+// console.log(maximumWealth([2, 1, -1]));
