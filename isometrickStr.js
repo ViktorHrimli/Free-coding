@@ -46,28 +46,61 @@
 // }
 // console.log(isSubsequence("abc", "ahbgdc"));
 
-let sum = 1;
+// let sum = 1;
 
-function numberOfSteps(num) {
-  let step = [0];
-  sum++;
+// function numberOfSteps(num) {
+//   let step = [0];
+//   sum++;
 
-  if (num % 2 === 0) {
-    num = num / 2;
-  } else {
-    num -= 1;
+//   if (num % 2 === 0) {
+//     num = num / 2;
+//   } else {
+//     num -= 1;
+//   }
+
+//   if (num !== 0) {
+//     numberOfSteps(num);
+//   } else {
+//     step.push(sum);
+//     step.shift();
+//     sum = 0;
+//   }
+//   return step[0];
+// }
+
+// console.log(numberOfSteps(14));
+// console.log(numberOfSteps(8));
+// // console.log(numberOfSteps(123));
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+const mergeTwoLists = function (list1, list2) {
+  const dummy = new ListNode(-Infinity);
+  let prev = dummy;
+  while (list1 && list2) {
+    if (list1.val <= list2.val) {
+      prev.next = list1;
+      prev = list1;
+      list1 = list1.next;
+    } else {
+      prev.next = list2;
+      prev = list2;
+      list2 = list2.next;
+    }
   }
+  if (!list1) prev.next = list2;
+  if (!list2) prev.next = list1;
 
-  if (num !== 0) {
-    numberOfSteps(num);
-  } else {
-    step.push(sum);
-    step.shift();
-    sum = 0;
-  }
-  return step[0];
-}
+  return dummy.next;
+};
 
-console.log(numberOfSteps(14));
-console.log(numberOfSteps(8));
-// console.log(numberOfSteps(123));
+console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
