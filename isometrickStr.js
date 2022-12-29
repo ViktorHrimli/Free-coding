@@ -29,19 +29,45 @@
 // }
 // console.log(isIsomorphic("paper", "title"));
 
-function isSubsequence(s, t) {
-  let p1 = 0;
-  let p2 = 0;
-  while (p1 < s.length && p2 < t.length) {
-    if (s[p1] === t[p2]) {
-      p2++;
-    } else {
-      p1++;
-      p2++;
-    }
-    false;
+// function isSubsequence(s, t) {
+//   let p1 = 0;
+//   let p2 = 0;
+//   while (p1 < s.length && p2 < t.length) {
+//     if (s[p1] === t[p2]) {
+//       p2++;
+//     } else {
+//       p1++;
+//       p2++;
+//     }
+//     false;
+//   }
+
+//   return p1 === s.length;
+// }
+// console.log(isSubsequence("abc", "ahbgdc"));
+
+let sum = 1;
+
+function numberOfSteps(num) {
+  let step = [0];
+  sum++;
+
+  if (num % 2 === 0) {
+    num = num / 2;
+  } else {
+    num -= 1;
   }
 
-  return p1 === s.length;
+  if (num !== 0) {
+    numberOfSteps(num);
+  } else {
+    step.push(sum);
+    step.shift();
+    sum = 0;
+  }
+  return step[0];
 }
-console.log(isSubsequence("abc", "ahbgdc"));
+
+console.log(numberOfSteps(14));
+console.log(numberOfSteps(8));
+// console.log(numberOfSteps(123));
