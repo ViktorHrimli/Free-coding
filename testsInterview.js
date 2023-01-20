@@ -48,52 +48,52 @@
 //  8. ()] -> 'Wrong order'
 //  9.   -> 'Wrong char'
 
-const tree = {
-  value: 16,
-  right: {
-    value: 1,
-    right: {
-      value: 1,
-      right: {
-        value: 1,
-      },
-      left: {
-        value: 12,
-      },
-    },
-    left: {
-      value: 12,
-      right: {
-        value: 1,
-      },
-      left: {
-        value: 12,
-      },
-    },
-  },
-  left: {
-    value: 12,
-    right: {
-      value: 1,
-      right: {
-        value: 1,
-      },
-      left: {
-        value: 12,
-      },
-    },
-    left: {
-      value: 12,
-      right: {
-        value: 1,
-      },
-      left: {
-        value: 12,
-      },
-    },
-  },
-};
-let newCoutn = 0;
+// const tree = {
+//   value: 16,
+//   right: {
+//     value: 1,
+//     right: {
+//       value: 1,
+//       right: {
+//         value: 1,
+//       },
+//       left: {
+//         value: 12,
+//       },
+//     },
+//     left: {
+//       value: 12,
+//       right: {
+//         value: 1,
+//       },
+//       left: {
+//         value: 12,
+//       },
+//     },
+//   },
+//   left: {
+//     value: 12,
+//     right: {
+//       value: 1,
+//       right: {
+//         value: 1,
+//       },
+//       left: {
+//         value: 12,
+//       },
+//     },
+//     left: {
+//       value: 12,
+//       right: {
+//         value: 1,
+//       },
+//       left: {
+//         value: 12,
+//       },
+//     },
+//   },
+// };
+// let newCoutn = 0;
 // const binarySerch = (tree) => {
 //   newCoutn += 1;
 //   let count = tree.value;
@@ -128,3 +128,21 @@ let newCoutn = 0;
 // const dalayFn = someFn(2, "arg", []);
 
 // dalayFn(3000);
+const isIsomorphic = function (s, t) {
+  if (s.length !== t.length) return false;
+  const objS = {};
+  const objT = {};
+  for (let i = 0; i < s.length; i++) {
+    console.log(objS[s[i]]);
+    console.log(objT[t[i]]);
+    if (objS[s[i]] !== objT[t[i]]) {
+      return false;
+    } else {
+      objS[s[i]] = i;
+      objT[t[i]] = i;
+    }
+    return true;
+  }
+};
+
+console.log(isIsomorphic("paper", "title"));
