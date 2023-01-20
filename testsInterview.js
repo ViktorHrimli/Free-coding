@@ -128,21 +128,78 @@
 // const dalayFn = someFn(2, "arg", []);
 
 // dalayFn(3000);
-const isIsomorphic = function (s, t) {
-  if (s.length !== t.length) return false;
-  const objS = {};
-  const objT = {};
-  for (let i = 0; i < s.length; i++) {
-    console.log(objS[s[i]]);
-    console.log(objT[t[i]]);
-    if (objS[s[i]] !== objT[t[i]]) {
-      return false;
+// const isIsomorphic = function (s, t) {
+//   if (s.length !== t.length) return false;
+//   const objS = {};
+//   const objT = {};
+//   for (let i = 0; i < s.length; i++) {
+//     console.log(objS[s[i]]);
+//     console.log(objT[t[i]]);
+//     if (objS[s[i]] !== objT[t[i]]) {
+//       return false;
+//     } else {
+//       objS[s[i]] = i;
+//       objT[t[i]] = i;
+//     }
+//     return true;
+//   }
+// };
+// console.log(isIsomorphic("paper", "title"));
+
+// Як відфільтрувати цей масив ⬇️
+const arr = [
+  {
+    type: "Bar",
+    categoty: "Bear",
+    price: 122,
+  },
+  {
+    type: "Bar",
+    categoty: "Tea",
+    price: 80,
+  },
+  {
+    type: "Cook",
+    categoty: "Salat",
+    price: 321,
+  },
+  {
+    type: "Cook",
+    categoty: "Salat",
+    price: 555,
+  },
+];
+
+const filterArr = (arr) => {
+  const newData = [];
+
+  arr.forEach((item) => {
+    if (newData.filter((newItem) => newItem.type === item.type).length > 0) {
+      if (
+        !newData
+          .find((newItem) => newItem.type === item.type)
+          .categoty.includes(item.categoty)
+      ) {
+        newData
+          .find((newItem) => newItem.type === item.type)
+          .categoty.push(item.categoty);
+      }
     } else {
-      objS[s[i]] = i;
-      objT[t[i]] = i;
+      newData.push({ type: item.type, categoty: [item.categoty] });
     }
-    return true;
-  }
+  });
+  return newData;
 };
 
-console.log(isIsomorphic("paper", "title"));
+console.log(filterArr(arr));
+
+//   // В цей ⬇️
+//   ({
+//     type: "Бар",
+//     categoty: ["Пиво", "Чай"],
+//   },
+//   {
+//     type: "Кухня",
+//     categoty: ["Салати"],
+//   })
+// ];
