@@ -170,36 +170,113 @@ const arr = [
   },
 ];
 
-const filterArr = (arr) => {
-  const newData = [];
+// const filterArr = (arr) => {
+//   const newData = [];
 
-  arr.forEach((item) => {
-    if (newData.filter((newItem) => newItem.type === item.type).length > 0) {
-      if (
-        !newData
-          .find((newItem) => newItem.type === item.type)
-          .categoty.includes(item.categoty)
-      ) {
-        newData
-          .find((newItem) => newItem.type === item.type)
-          .categoty.push(item.categoty);
-      }
-    } else {
-      newData.push({ type: item.type, categoty: [item.categoty] });
-    }
-  });
-  return newData;
+//   arr.forEach((item) => {
+//     if (newData.filter((newItem) => newItem.type === item.type).length > 0) {
+//       if (
+//         !newData
+//           .find((newItem) => newItem.type === item.type)
+//           .categoty.includes(item.categoty)
+//       ) {
+//         newData
+//           .find((newItem) => newItem.type === item.type)
+//           .categoty.push(item.categoty);
+//       }
+//     } else {
+//       newData.push({ type: item.type, categoty: [item.categoty] });
+//     }
+//   });
+//   return newData;
+// };
+
+// console.log(filterArr(arr));
+
+// //   // В цей ⬇️
+// //   ({
+// //     type: "Бар",
+// //     categoty: ["Пиво", "Чай"],
+// //   },
+// //   {
+// //     type: "Кухня",
+// //     categoty: ["Салати"],
+// // //   })
+// // // ];
+// console.time("A");
+
+// const newBinarySerch = (arr, item) => {
+//   let step = 0;
+//   let low = 0;
+//   let high = arr.length - 1;
+//   let middle;
+
+//   while (low <= high) {
+//     middle = Math.floor((low + high) / 2);
+//     let num = arr[middle];
+//     console.log("step :", step);
+
+//     if (num === item) return middle;
+
+//     if (item < num) {
+//       step++;
+
+//       high = middle - 1;
+//     } else {
+//       step++;
+
+//       low = middle + 1;
+//     }
+//   }
+//   return middle;
+// };
+
+// console.log(
+//   newBinarySerch(
+//     Array.from({ length: 1 }, (_, idx) => idx),
+//     100
+//   )
+// );
+// console.timeEnd("A");
+
+const argesr = [
+  3, 6, 1, 8, 2, 0, 4, 6, 5, -6, -3, -1, 26, 332, 2324, 21, 1, 2, 5, -3, -33453,
+  232,
+];
+
+// const smallsEl = (arr) => {
+//   let smallestIndx = 0;
+//   let smalEl = arr[0];
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (smalEl > arr[i]) {
+//       smallestIndx = i;
+//       smalEl = arr[i];
+//     }
+//   }
+//   return smallestIndx;
+// };
+
+// const serchSelections = (arr) => {
+//   const res = [];
+
+//   while (arr.length > 0) {
+//     const smallst = smallsEl(arr);
+//     res.push(arr[smallst]);
+//     arr.splice(smallst, 1);
+//   }
+
+//   return res;
+// };
+
+const recursiveSerchSmalst = (arr) => {
+  let smalstIndx = 0;
+  let smalsEl = arr[0];
+
+  if (smalsEl > arr[smalstIndx + 1]) {
+    smalstIndx += 1;
+    smalsEl = arr[smalstIndx];
+  }
 };
 
-console.log(filterArr(arr));
-
-//   // В цей ⬇️
-//   ({
-//     type: "Бар",
-//     categoty: ["Пиво", "Чай"],
-//   },
-//   {
-//     type: "Кухня",
-//     categoty: ["Салати"],
-//   })
-// ];
+console.log(serchSelections(argesr));
