@@ -58,11 +58,27 @@
 
 // console.log(flatten(diFlat(arr)));
 
-(() => {
-  var doTh = (theKey, theObj) => {
-    var val = "red.cat.tot".matchAll(/[^.]+/g);
-    console.log(val.next().value);
-  };
+// (() => {
+//   var doTh = (theKey, theObj) => {
+//     var val = "red.cat.tot".matchAll(/[^.]+/g);
+//     console.log(val.next().value);
+//   };
 
-  console.log(doTh("red.cat.tot", { red: { cat: { tot: "sdsad" } } }));
-})();
+//   console.log(doTh("red.cat.tot", { red: { cat: { tot: "sdsad" } } }));
+// })();
+
+var comonFuncFindIndex = (strc) => {
+  strc.sort();
+
+  var firsStr = strc[0];
+  var lastStr = strc[strc.length - 1];
+
+  var i = 0;
+  while (i < firsStr.length && firsStr[i] === lastStr[i]) {
+    i++;
+  }
+  return firsStr.substring(0, i);
+};
+
+console.log(comonFuncFindIndex(["flower", "flow", "flight"]));
+console.log(comonFuncFindIndex(["dog", "racecar", "car"]));
