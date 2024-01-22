@@ -67,18 +67,52 @@
 //   console.log(doTh("red.cat.tot", { red: { cat: { tot: "sdsad" } } }));
 // })();
 
-var comonFuncFindIndex = (strc) => {
-  strc.sort();
+// var comonFuncFindIndex = (strc) => {
+//   strc.sort();
 
-  var firsStr = strc[0];
-  var lastStr = strc[strc.length - 1];
+//   var firsStr = strc[0];
+//   var lastStr = strc[strc.length - 1];
 
-  var i = 0;
-  while (i < firsStr.length && firsStr[i] === lastStr[i]) {
-    i++;
-  }
-  return firsStr.substring(0, i);
+//   var i = 0;
+//   while (i < firsStr.length && firsStr[i] === lastStr[i]) {
+//     i++;
+//   }
+//   return firsStr.substring(0, i);
+// };
+
+// console.log(comonFuncFindIndex(["flower", "flow", "flight"]));
+// console.log(comonFuncFindIndex(["dog", "racecar", "car"]));
+
+const objMap = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
 };
 
-console.log(comonFuncFindIndex(["flower", "flow", "flight"]));
-console.log(comonFuncFindIndex(["dog", "racecar", "car"]));
+var romanToInt = function (s) {
+  var strArr = s.split("");
+  var skipNext = false;
+
+  return strArr.reduce((acc, el, ind, arr) => {
+    if (skipNext) {
+      skipNext = false;
+      return acc;
+    }
+    var nextNumeral = objMap[arr[ind + 1]];
+    var currentNumeral = objMap[el];
+
+    if (nextNumeral > currentNumeral) {
+      acc += nextNumeral - currentNumeral;
+      skipNext = true;
+    } else {
+      acc += currentNumeral;
+    }
+    return acc;
+  }, 0);
+};
+
+console.log(romanToInt("MCMXCIV"));
