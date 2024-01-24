@@ -83,36 +83,61 @@
 // console.log(comonFuncFindIndex(["flower", "flow", "flight"]));
 // console.log(comonFuncFindIndex(["dog", "racecar", "car"]));
 
-const objMap = {
-  I: 1,
-  V: 5,
-  X: 10,
-  L: 50,
-  C: 100,
-  D: 500,
-  M: 1000,
+// const objMap = {
+//   I: 1,
+//   V: 5,
+//   X: 10,
+//   L: 50,
+//   C: 100,
+//   D: 500,
+//   M: 1000,
+// };
+
+// var romanToInt = function (s) {
+//   var strArr = s.split("");
+//   var skipNext = false;
+
+//   return strArr.reduce((acc, el, ind, arr) => {
+//     if (skipNext) {
+//       skipNext = false;
+//       return acc;
+//     }
+//     var nextNumeral = objMap[arr[ind + 1]];
+//     var currentNumeral = objMap[el];
+
+//     if (nextNumeral > currentNumeral) {
+//       acc += nextNumeral - currentNumeral;
+//       skipNext = true;
+//     } else {
+//       acc += currentNumeral;
+//     }
+//     return acc;
+//   }, 0);
+// };
+
+// console.log(romanToInt("MCMXCIV"));
+
+// '(', ')', '{', '}', '[' and ']
+
+var objScoupe = {
+  ")": "(",
+  "}": "{",
+  "]": "[",
+};
+var stack = [];
+var bindPush = Array.prototype.push.bind(stack);
+var bindPop = Array.prototype.pop.bind(stack);
+
+var determinated = (s) => {
+  for (const char of s) {
+    if (char in objScoupe) {
+      var topEl = s.length === 0 ? "false" : bindPop();
+      if (topEl !== objScoupe[char]) {
+        return false;
+      }
+    } else bindPush(char);
+  }
+  return stack.length === 0;
 };
 
-var romanToInt = function (s) {
-  var strArr = s.split("");
-  var skipNext = false;
-
-  return strArr.reduce((acc, el, ind, arr) => {
-    if (skipNext) {
-      skipNext = false;
-      return acc;
-    }
-    var nextNumeral = objMap[arr[ind + 1]];
-    var currentNumeral = objMap[el];
-
-    if (nextNumeral > currentNumeral) {
-      acc += nextNumeral - currentNumeral;
-      skipNext = true;
-    } else {
-      acc += currentNumeral;
-    }
-    return acc;
-  }, 0);
-};
-
-console.log(romanToInt("MCMXCIV"));
+console.log(determinated("{[]}"));
