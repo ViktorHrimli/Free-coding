@@ -83,15 +83,15 @@
 // console.log(comonFuncFindIndex(["flower", "flow", "flight"]));
 // console.log(comonFuncFindIndex(["dog", "racecar", "car"]));
 
-// const objMap = {
-//   I: 1,
-//   V: 5,
-//   X: 10,
-//   L: 50,
-//   C: 100,
-//   D: 500,
-//   M: 1000,
-// };
+const objMap = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
+};
 
 // var romanToInt = function (s) {
 //   var strArr = s.split("");
@@ -115,29 +115,74 @@
 //   }, 0);
 // };
 
+// var romanToInt = (s) => {
+//   var res = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     var currentNumeral = objMap[s[i]];
+//     var nextNumeral = objMap[s[i + 1]];
+
+//     if (currentNumeral < nextNumeral) {
+//       res += nextNumeral - currentNumeral;
+//       i++;
+//     } else {
+//       res += currentNumeral;
+//     }
+//   }
+//   return res;
+// };
+
 // console.log(romanToInt("MCMXCIV"));
 
 // '(', ')', '{', '}', '[' and ']
 
-var objScoupe = {
-  ")": "(",
-  "}": "{",
-  "]": "[",
-};
-var stack = [];
-var bindPush = Array.prototype.push.bind(stack);
-var bindPop = Array.prototype.pop.bind(stack);
+// var objScoupe = {
+//   ")": "(",
+//   "}": "{",
+//   "]": "[",
+// };
+// var stack = [];
+// var bindPush = Array.prototype.push.bind(stack);
+// var bindPop = Array.prototype.pop.bind(stack);
 
-var determinated = (s) => {
-  for (const char of s) {
-    if (char in objScoupe) {
-      var topEl = s.length === 0 ? "false" : bindPop();
-      if (topEl !== objScoupe[char]) {
-        return false;
-      }
-    } else bindPush(char);
-  }
-  return stack.length === 0;
+// var determinated = (s) => {
+//   for (const char of s) {
+//     if (char in objScoupe) {
+//       var topEl = s.length === 0 ? "false" : bindPop();
+//       if (topEl !== objScoupe[char]) {
+//         return false;
+//       }
+//     } else bindPush(char);
+//   }
+//   return stack.length === 0;
+// };
+
+// var determinated = (s) => {
+//   var str = s.split("").reduce((acc, el) => {
+//     if (el in objScoupe) {
+//       var topEl = stack.length === 0 ? "faf" : bindPop();
+//       if (topEl !== objScoupe[el]) {
+//         return false;
+//       }
+//     } else bindPush(el);
+//   }, []);
+
+//   return stack.length === 0;
+// };
+
+// console.log(determinated("{)}"));
+
+var twoSum = function (nums, target) {
+  var map = new Map();
+  var stack = [];
+  nums.reduce((acc, el, ind) => {
+    acc = target - el;
+    if (map.has(acc)) {
+      stack.push(map.get(acc), ind);
+    } else {
+      map.set(el, ind);
+    }
+  }, 0);
+  return stack;
 };
 
-console.log(determinated("{[]}"));
+console.log(twoSum([2, 7, 11, 15], 9));
