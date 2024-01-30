@@ -171,18 +171,29 @@ const objMap = {
 
 // console.log(determinated("{)}"));
 
-var twoSum = function (nums, target) {
-  var map = new Map();
-  var stack = [];
-  nums.reduce((acc, el, ind) => {
-    acc = target - el;
-    if (map.has(acc)) {
-      stack.push(map.get(acc), ind);
-    } else {
-      map.set(el, ind);
-    }
+// var twoSum = function (nums, target) {
+//   var map = new Map();
+//   var stack = [];
+//   nums.reduce((acc, el, ind) => {
+//     acc = target - el;
+//     if (map.has(acc)) {
+//       stack.push(map.get(acc), ind);
+//     } else {
+//       map.set(el, ind);
+//     }
+//   }, 0);
+//   return stack;
+// };
+
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+var stack = new Map();
+var call = [];
+var removeDuplicates = (nums) => {
+  return nums.reduce((acc, el, ind) => {
+    stack.has(el) ? acc++ : stack.set(el, ind) & call.push(el);
+    return call;
   }, 0);
-  return stack;
 };
 
-console.log(twoSum([2, 7, 11, 15], 9));
+console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
