@@ -187,13 +187,17 @@ const objMap = {
 
 // console.log(twoSum([2, 7, 11, 15], 9));
 
-var stack = new Map();
-var call = [];
-var removeDuplicates = (nums) => {
-  return nums.reduce((acc, el, ind) => {
-    stack.has(el) ? acc++ : stack.set(el, ind) & call.push(el);
-    return call;
-  }, 0);
-};
+// var stack = new Map();
+// var call = [];
+// var removeDuplicates = (nums) => {
+//   return nums.reduce((acc, el, ind) => {
+//     stack.has(el) ? acc++ : stack.set(el, ind) & call.push(el);
+//     return call;
+//   }, 0);
+// };
 
-console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+
+var str = "Fucking poland whore putins";
+
+console.log(str.split(/\p{Zs}/u));
