@@ -198,6 +198,48 @@ const objMap = {
 
 // console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
 
-var str = "Fucking poland whore putins";
+// var str = "Fucking poland whore putins";
 
-console.log(str.split(/\p{Zs}/u));
+// console.log(str.split(/\p{Zs}/u));
+
+// function theNameFunc(theStrName) {
+//   return () => true;
+// }
+
+// var doName = theNameFunc("TEST");
+
+// console.log(doName.name === "TEST");
+
+var obj = {
+  data: {
+    attr: {
+      file: {
+        blob: true,
+      },
+      url: "lol",
+    },
+    testkek: {
+      arr: [0, 1, 2],
+    },
+    name: "james",
+  },
+  id: 1,
+};
+
+var doFindKey = (obj) => {
+  var target = "arr";
+
+  if (obj.hasOwnProperty(target)) {
+    return (res = obj[target]);
+  } else {
+    for (const key in obj) {
+      if (typeof obj[key] === "object") {
+        // !Array.isArray(obj)
+        const result = doFindKey(obj[key]);
+        return result ? result : "NOT FOUND";
+      }
+    }
+  }
+};
+
+console.log(doFindKey(obj));
