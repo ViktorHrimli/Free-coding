@@ -226,20 +226,47 @@ var obj = {
   id: 1,
 };
 
-var doFindKey = (obj) => {
-  var target = "arr";
+// var doFindKey = (obj) => {
+//   var target = "arr";
 
-  if (obj.hasOwnProperty(target)) {
-    return (res = obj[target]);
-  } else {
-    for (const key in obj) {
-      if (typeof obj[key] === "object") {
-        // !Array.isArray(obj)
-        const result = doFindKey(obj[key]);
-        return result ? result : "NOT FOUND";
-      }
-    }
-  }
-};
+//   if (obj.hasOwnProperty(target)) {
+//     return (res = obj[target]);
+//   } else {
+//     for (const key in obj) {
+//       if (typeof obj[key] === "object") {
+//         // !Array.isArray(obj)
+//         const result = doFindKey(obj[key]);
+//         return result ? result : "NOT FOUND";
+//       }
+//     }
+//   }
+// };
 
-console.log(doFindKey(obj));
+// console.log(doFindKey(obj));
+
+function doName(theStrName) {
+  var kuk = () => true;
+
+  // var kek = {
+  //   [theStrName]: () => true;
+  // }
+
+  // return new Proxy(kuk, {
+  //   get(target, prop) {
+  //     return prop === "name" && theStrName;
+  //   },
+  // });
+
+  Object.defineProperty(kuk, "name", { value: theStrName });
+
+  return kuk;
+  // return kek[theStrName]
+}
+
+var doArrow = doName("AnyName");
+doArrow(); // true
+console.log(doArrow.name === "AnyName"); // true
+
+var doAnotherArrow = doName("AnotherName");
+doAnotherArrow(); // true
+console.log(doAnotherArrow.name === "AnotherName"); // true
